@@ -1,0 +1,7 @@
+refactor.txt
+
+Author: Jong Park (parkj6)
+
+This document shows what has been refactored in the dominion files.
+
+1. created "cards.h" and included "cards.h" in the dominion.c file.
