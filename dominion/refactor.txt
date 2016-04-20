@@ -1,0 +1,34 @@
+Author: Jong Park (parkj6)
+Filename: refactor.txt
+
+This document shows what has been refactored in the dominion files.
+
+1. created cards.h and #included cards.h in the following files:
+	dominion.c
+	playdom.c
+	player.c
+	interface.c
+	
+2. imported the following cases to cards.h and created functions accordingly:
+	adventurer 		-> _adv
+	council_room 	-> _council
+	feast			-> _feast
+	mine			-> _mine
+	remodel			-> _remodel
+	smithy			-> _smithy
+	village			-> _village
+	baron			-> _baron
+	great_hall		-> _great
+	minion			-> _minion
+	steward			-> _steward
+	tribute			-> _tribute
+	ambassador		-> _ambassador
+	catpurse		-> _catpurse
+	embargo			-> _enbargo
+	outpost			-> _outpost
+	salvager		-> _salvager
+	sea_hag			-> _seahag
+	treasure_map	-> _treasure
+	
+3. did not import "garden" case.
+4. modified the Makefile to include cards.h
