@@ -1,7 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include "dominion.h"
-#include "cards.h"
 #include "rngs.h"
 
 int main (int argc, char** argv) {

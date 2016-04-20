@@ -11,7 +11,6 @@ Sam Heinith CS362
 #include "rngs.h"
 #include "interface.h"
 #include "dominion.h"
-#include "hands.h"
 
 
 void cardNumToName(int card, char *name){

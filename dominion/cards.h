@@ -1,8 +1,11 @@
 #ifndef CARDS_H
 #define CARDS_H
 
+#include <stdio.h>
 #include "dominion.h"
-int _adv(int currentPlayer, struct gameState *state) {
+#include "dominion_helpers.h"
+
+int adv(int currentPlayer, struct gameState *state) {
 	int drawntreasure=0;
 	int cardDrawn;
 	int temphand[MAX_HAND];// moved above the if statement
@@ -19,22 +22,22 @@ int _adv(int currentPlayer, struct gameState *state) {
 		if (cardDrawn == copper || cardDrawn == silver || cardDrawn == gold) {
 			drawntreasure++;
 		}else {
-		  temphand[z]=cardDrawn;
-		  state->handCount[currentPlayer]--; //this should just remove the top card (the most recently drawn one).
-		  z++;
+			temphand[z]=cardDrawn;
+			state->handCount[currentPlayer]--; //this should just remove the top card (the most recently drawn one).
+			z++;
 		}
-    }
-    
-	while(z-1>=0){
-		// discard all cards in play that have been drawn
-		state->discard[currentPlayer][state->discardCount[currentPlayer]++]=temphand[z-1]; 
-		z=z-1;
 	}
-	
+
+	while(z-1>=0){
+	// discard all cards in play that have been drawn
+	state->discard[currentPlayer][state->discardCount[currentPlayer]++]=temphand[z-1]; 
+	z=z-1;
+	}
+
 	return 0;
 }
 
-int _council(int currentPlayer, struct gameState *state, int handPos) {
+int council(int currentPlayer, struct gameState *state, int handPos) {
 	int i;
 
 	//+4 Cards
@@ -58,7 +61,7 @@ int _council(int currentPlayer, struct gameState *state, int handPos) {
       return 0;
 }
 
-int _feast(int currentPlayer, struct gameState *state, int choice1) {
+int fea(int currentPlayer, struct gameState *state, int choice1) {
 	int i, x;
 	int temphand[MAX_HAND];// moved above the if statement
 
@@ -113,8 +116,8 @@ int _feast(int currentPlayer, struct gameState *state, int choice1) {
 
 // garden just returns -1
 
-int _mine(int currentPlayer, struct gameState *state, int choice1, int choice2) {
-	int j;
+int min(int currentPlayer, struct gameState *state, int handPos, int choice1, int choice2) {
+	int i, j;
 	j = state->hand[currentPlayer][choice1];  //store card we will trash
 
     if (state->hand[currentPlayer][choice1] < copper || state->hand[currentPlayer][choice1] > gold){
@@ -145,8 +148,8 @@ int _mine(int currentPlayer, struct gameState *state, int choice1, int choice2) 
     return 0;		
 }
 
-int _remodel(int currentPlayer, struct gameState *state, int handPos, int choice1, int choice2) {
-	int j;
+int rem(int currentPlayer, struct gameState *state, int handPos, int choice1, int choice2) {
+	int i, j;
 	j = state->hand[currentPlayer][choice1];  //store card we will trash
 
     if ( (getCost(state->hand[currentPlayer][choice1]) + 2) > getCost(choice2) ){
@@ -168,7 +171,7 @@ int _remodel(int currentPlayer, struct gameState *state, int handPos, int choice
     return 0;	
 }
 
-int _smithy(int currentPlayer, struct gameState *state, int handPos) {
+int smi(int currentPlayer, struct gameState *state, int handPos) {
 	int i;
 	//+3 Cards
     for (i = 0; i < 3; i++){
@@ -180,7 +183,7 @@ int _smithy(int currentPlayer, struct gameState *state, int handPos) {
     return 0;
 }
 
-int _village(int currentPlayer, struct gameState *state, int handPos) {
+int vill(int currentPlayer, struct gameState *state, int handPos) {
 	//+1 Card
 	drawCard(currentPlayer, state);
 
@@ -192,7 +195,7 @@ int _village(int currentPlayer, struct gameState *state, int handPos) {
 	return 0;
 }
 
-int _baron(int currentPlayer, struct gameState *state, int choice1){
+int bar(int currentPlayer, struct gameState *state, int choice1){
 	state->numBuys++;//Increase buys by 1!
 	
 	if (choice1 > 0){//Boolean true or going to discard an estate
@@ -242,7 +245,7 @@ int _baron(int currentPlayer, struct gameState *state, int choice1){
 	return 0;
 }
 
-int _great(int currentPlayer, struct gameState *state, int handPos) {
+int great(int currentPlayer, struct gameState *state, int handPos) {
 	//+1 Card
 	drawCard(currentPlayer, state);
 
@@ -254,8 +257,8 @@ int _great(int currentPlayer, struct gameState *state, int handPos) {
 	return 0;
 }
 
-int _minion (int currentPlayer, struct gameState *state, int handPos, int choice1) {
-	int i;
+int mini(int currentPlayer, struct gameState *state, int handPos, int choice1, int choice2) {
+	int i, j;
 	//+1 action
 	state->numActions++;
 
@@ -299,7 +302,7 @@ int _minion (int currentPlayer, struct gameState *state, int handPos, int choice
 	return 0;
 }
 
-int _steward (int currentPlayer, struct gameState *state, int handPos, int choice1, int choice2, int choice3) {
+int stew(int currentPlayer, struct gameState *state, int handPos, int choice1, int choice2, int choice3) {
 	if (choice1 == 1){
 		//+2 cards
 		drawCard(currentPlayer, state);
@@ -320,7 +323,8 @@ int _steward (int currentPlayer, struct gameState *state, int handPos, int choic
 	return 0;
 }
 
-int _tribute(int currentPlayer, struct gameState *state, int nextPlayer){
+int trib(int currentPlayer, struct gameState *state){
+	int i;
 	int tributeRevealedCards[2] = {-1, -1};
 	int nextPlayer = currentPlayer + 1;
 	if (nextPlayer > (state->numPlayers - 1)){
@@ -388,7 +392,8 @@ int _tribute(int currentPlayer, struct gameState *state, int nextPlayer){
 	return 0;
 }
 
-int _ambassador(int currentPlayer, struct gameState *state, int handPos, int choice1, int choice2) {
+int ambass(int currentPlayer, struct gameState *state, int handPos, int choice1, int choice2) {
+	int i;
 	i = 0; //used to check if player has enough cards to discard
 
 	if (choice2 > 2 || choice2 < 0){
@@ -437,7 +442,7 @@ int _ambassador(int currentPlayer, struct gameState *state, int handPos, int cho
 	return 0;
 }
 
-int _catpurse(int currentPlayer, struct, gameState *state, int handPos){
+int catp(int currentPlayer, struct gameState *state, int handPos){
 	int i, j, k;
 	updateCoins(currentPlayer, state, 2);
 	for (i = 0; i < state->numPlayers; i++){
@@ -464,7 +469,7 @@ int _catpurse(int currentPlayer, struct, gameState *state, int handPos){
 	return 0;
 }
 
-int _embargo(int currentPlayer, struct gameState *state, int handPos){
+int embar(int currentPlayer, struct gameState *state, int handPos, int choice1){
 	//+2 Coins
 	state->coins = state->coins + 2;
 
@@ -481,7 +486,7 @@ int _embargo(int currentPlayer, struct gameState *state, int handPos){
 	return 0;
 }
 
-int _outpost(int currentPlayer, struct gameState *state, int handPos){
+int outp(int currentPlayer, struct gameState *state, int handPos){
 	//set outpost flag
 	state->outpostPlayed++;
 
@@ -490,7 +495,7 @@ int _outpost(int currentPlayer, struct gameState *state, int handPos){
 	return 0;
 }
 
-int _salvager(int currentPlayer, struct gameState *state, int handPos, int choice1){
+int salv(int currentPlayer, struct gameState *state, int handPos, int choice1){
 	//+1 buy
 	state->numBuys++;
 
@@ -507,7 +512,7 @@ int _salvager(int currentPlayer, struct gameState *state, int handPos, int choic
 	return 0;
 }
 
-int _seahag(int currentPlayer, struct gameState *state){
+int seahag(int currentPlayer, struct gameState *state){
 	int i;
 	for (i = 0; i < state->numPlayers; i++){
 		if (i != currentPlayer){
@@ -520,7 +525,7 @@ int _seahag(int currentPlayer, struct gameState *state){
 	return 0;
 }
 
-int _treasure(int currentPlayer, struct gameState *state, int handPos){
+int treasur(int currentPlayer, struct gameState *state, int handPos){
 	int i;
 	int index = -1;
 	//search hand for another treasure_map

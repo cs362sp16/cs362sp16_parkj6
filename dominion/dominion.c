@@ -648,45 +648,64 @@ int cardEffect(int card, int choice1, int choice2, int choice3, struct gameState
 	//uses switch to select card and perform actions
 	switch( card ){
 		case adventurer:
-			_adv(currentPlayer, state);
+			adv(currentPlayer, state);
+			break;
 		case council_room:
-			_council(currentPlayer, state, handPos);
+			council(currentPlayer, state, handPos);
+			break;
 		case feast:
-			_feast(currentPlayer, state, choice1);
+			fea(currentPlayer, state, choice1);
+			break;
 		case gardens:
 			return -1;
 		case mine:
-			_mine(currentPlayer, state, choice1, choice2);
+			min(currentPlayer, state, handPos, choice1, choice2);
+			break;
 		case remodel:
-			_remodel(currentPlayer, state, handPos, choice1, choice2);
+			rem(currentPlayer, state, handPos, choice1, choice2);
+			break;
 		case smithy:
-			_smithy(currentPlayer, state, handPos);
+			smi(currentPlayer, state, handPos);
+			break;
 		case village:
-			_village(currentPlayer, state, handPos);
+			vill(currentPlayer, state, handPos);
+			break;
 		case baron:
-			_baron(currentPlayer, state, choice1);
+			bar(currentPlayer, state, choice1);
+			break;
 		case great_hall:
-			_great(currentPlayer, state, handPos);
+			great(currentPlayer, state, handPos);
+			break;
 		case minion:
-			_minion(currentPlayer, state, handPos, choice1);
+			mini(currentPlayer, state, handPos, choice1, choice2);
+			break;
 		case steward:
-			_steward(currentPlayer, state, handPos, choice1, choice2, choice3);
+			stew(currentPlayer, state, handPos, choice1, choice2, choice3);
+			break;
 		case tribute:
-			_tribute(currentPlayer, state);
+			trib(currentPlayer, state);
+			break;
 		case ambassador:
-			_ambassador(currentPlayer, state, handPos, choice1, choice2);
+			ambass(currentPlayer, state, handPos, choice1, choice2);
+			break;
 		case cutpurse:
-			_catpurse(currentPlayer, state, handPos);
+			catp(currentPlayer, state, handPos);
+			break;
 		case embargo: 
-			_embargo(currentPlayer, state, handPos);
+			embar(currentPlayer, state, handPos, choice1);
+			break;
 		case outpost:
-			_outpost(currentPlayer, state, handPos);
+			outp(currentPlayer, state, handPos);
+			break;
 		case salvager:
-			_salvager(currentPlayer, state, handPos, choice1);
+			salv(currentPlayer, state, handPos, choice1);
+			break;
 		case sea_hag:
-			_seahag(currentPlayer, state);
+			seahag(currentPlayer, state);
+			break;
 		case treasure_map:
-			_treasure(currentPlayer, state, handPos);
+			treasur(currentPlayer, state, handPos);
+			break;
 	}
 	
   return -1;
