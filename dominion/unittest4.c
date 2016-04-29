@@ -1,7 +1,7 @@
 /*
 //Author: 		Jong Park (parkj6)
 //Filename:		unittest4.c
-//Description: 	Tests
+//Description: 	Tests endTurn functions in the dominion.c file.
 */
 
 #include <stdio.h>

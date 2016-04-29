@@ -2,3 +2,4 @@ Author: 	Jong Park (parkj6)
 Filename: 	unittestbugs.txt
 About: 		This document reports any bugs found while running the tests described in unittesting.txt
 
+No known bugs found except compiler bugs. I don't know the game enough to know what the accurate result of the output should be.
