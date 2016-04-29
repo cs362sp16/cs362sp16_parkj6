@@ -6,4 +6,9 @@
 
 #include <stdio.h>
 #include "dominion.h"
+#include "testing.h"
+
+int main() {
+	struct gameState g;
+}
 

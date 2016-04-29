@@ -1,0 +1,16 @@
+#!/bin/bash
+#filename: testall
+
+echo -e "\033[0;32m Testing unittests...\033[0m"
+
+./unittest1
+gcov unittest1 >> unittestresults.out
+./unittest2
+gcov unittest2 >> unittestresults.out
+./unittest3
+gcov unittest3 >> unittestresults.out
+./unittest4
+gcov unittest4 >> unittestresults.out
+
+echo -e "\033[0;32m Testing cardtests...\033[0m"
+

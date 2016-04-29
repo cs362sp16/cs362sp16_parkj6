@@ -24,7 +24,6 @@ int k[10] = {smithy,
 void myassert (int pass, char* msg) {
 	if (pass){
 		printf("TEST PASSED.\nTEST CONDITION: %s\n\n",msg);
-		pass++;
 	}
 	else{
 		printf("TEST FAILED.\nTEST CONDITION: %s\n\n",msg);
@@ -35,9 +34,9 @@ void myassert (int pass, char* msg) {
 
 void checkasserts() {
 	if (fail==0) {
-		printf("\nALL TEST PASSES!\t(%d/%d)\n",pass,tests);
+		printf("\nALL TEST PASSES!\t(%d/%d Passed)\n",tests,tests);
 	}
 	else{
-		printf("\nSOME TESTS FAILED.\t (%d/%d)\n",fail, tests);
+		printf("\nSOME TESTS FAILED.\t (%d/%d Passed)\n",tests-fail, tests);
 	}
 }
