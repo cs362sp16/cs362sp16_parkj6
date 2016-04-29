@@ -1,7 +1,6 @@
-Author: Jong Park (parkj6)
-Filename: refactor.txt
-
-This document shows what has been refactored in the dominion files.
+Author: 	Jong Park (parkj6)
+Filename: 	refactor.txt
+About: 		This document shows what has been refactored in the dominion files.
 
 1. created cards.h and #included cards.h in the following files:
 	dominion.c
@@ -28,4 +27,5 @@ This document shows what has been refactored in the dominion files.
 	treasure_map	-> treasur
 	
 3. did not import "garden" case.
+
 4. modified the Makefile to include cards.h
