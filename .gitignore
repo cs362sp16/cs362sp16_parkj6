@@ -30,6 +30,7 @@
 
 # Debug files
 *.dSYM/
+*.gcn*
 
 # Icon must end with two \r
 Icon
