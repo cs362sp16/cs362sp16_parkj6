@@ -1,5 +1,8 @@
 #!/bin/bash
-#filename: testall
+#
+# Author: 	Jong Park
+# Filename: testall
+# Description: This script takes the four Unit-tests and four card-tests and runs gcov and saves to unittestresults.out
 
 echo -e "\033[0;32m Testing unittests...\033[0m"
 
