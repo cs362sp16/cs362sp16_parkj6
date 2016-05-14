@@ -5,10 +5,17 @@
 */
 
 #include <stdio.h>
+#include <stdlib.h>
+#ifndef EVERYTHING
+#define EVERYTHING 42
+#define MIL 1000000
+#endif
 
 int tests = 0;
 int pass = 0;
 int fail = 0;
+int num;
+
 //default card sets
 int k[10] = {smithy,
 			adventurer,
@@ -20,6 +27,13 @@ int k[10] = {smithy,
 			outpost,
 			baron,
 			tribute};
+			
+//Generates random number from 1 to 10
+int randTen(){
+	srand((unsigned)&num);
+	num = rand() % 10 + 1;
+	return num;
+}			
 
 void myassert (int pass, char* msg) {
 	if (pass){
