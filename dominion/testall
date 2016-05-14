@@ -17,3 +17,20 @@ gcov unittest4 >> unittestresults.out
 
 echo -e "\033[0;32m Testing cardtests...\033[0m"
 
+./cardtest1
+gcov cardtest1 >> unittestresults.out
+./cardtest2
+gcov cardtest2 >> unittestresults.out
+./cardtest3
+gcov cardtest3 >> unittestresults.out
+./cardtest4
+gcov cardtest4 >> unittestresults.out
+
+echo -e "\033[0;32m Testing cardtests...\033[0m"
+
+./randomtestcard1
+gcov randomtestcard1 >> randomtestcard1.out
+./randomtestcard2
+gcov randomtestcard2 >> randomtestcard2.out
+./randomtestcard3
+gcov randomtestcard3 >> randomtestcard3.out

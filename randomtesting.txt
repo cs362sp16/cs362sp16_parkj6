@@ -1,0 +1,4 @@
+Author: 	Jong Park (parkj6)
+Filename: 	randomtesting.txt
+About: 		This file is a write up of development of random testing. 
+			- Including coverage, corectness of specification.

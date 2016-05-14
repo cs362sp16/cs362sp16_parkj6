@@ -1,6 +1,6 @@
 CFLAGS = -Wall -fpic -coverage -lm
 
-all: playdom player
+default: playdom player
 
 rngs.o: rngs.h rngs.c
 	gcc -c rngs.c -g  $(CFLAGS)
@@ -30,5 +30,13 @@ test: playdom interface.o testing.h unittest*.c cardtest*.c
 	gcc -o cardtest3 cardtest3.c -g dominion.o rngs.o interface.o $(CFLAGS)
 	gcc -o cardtest4 cardtest4.c -g dominion.o rngs.o interface.o $(CFLAGS)
 
+randtest: playdom interface.o testing.h randomtestcard1.c randomtestcard2.c randomadventurer.c
+	gcc -o randomtestcard1 randomtestcard1.c -g dominion.o rngs.o interface.o $(CFLAGS)
+	gcc -o randomtestcard2 randomtestcard2.c -g dominion.o rngs.o interface.o $(CFLAGS)
+	gcc -o randomtestcard3 randomtestcard3.c -g dominion.o rngs.o interface.o $(CFLAGS)
+	
+out: test randtest testall
+	./testall
+	
 clean:
 	rm -f playdom simple test player unittest1 unittest2 unittest3 unittest4 cardtest1 cardtest2 cardtest3 cardtest4 testInit *.o *.gcov *.gcda *.gcno *.so *.a *.dSYM *.exe
