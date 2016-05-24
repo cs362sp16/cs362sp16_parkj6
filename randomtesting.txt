@@ -8,6 +8,6 @@ About: 		This file is a write up of development of random testing.
 	- randomtesting2.c
 	- randomadventurer.c
 
-0.5. Edited testing.h file to include "randTen" function, which generates random number from 1 - 10.
+0.5. Edited testing.h file to include "dice" function, which generates random number from 1 - n.
 
 1. 

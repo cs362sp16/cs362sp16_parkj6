@@ -14,7 +14,7 @@ int main(){
 	int i = 0;
 	
 	for(i=0; i<MIL; i++){
-		initializeGame(randTen(), k, EVERYTHING, &g);
+		initializeGame(dice(10), k, EVERYTHING, &g);
 		
 		test = cardEffect(k[2], NULL, NULL, NULL, &g, NULL, 0);
 		myassert(test==-1, "Returned -1\n");

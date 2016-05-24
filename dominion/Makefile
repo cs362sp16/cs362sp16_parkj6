@@ -34,8 +34,8 @@ testcard: playdom interface.o testing.h cardtest*.c
 
 randtest: playdom interface.o testing.h randomtestcard1.c randomtestcard2.c randomtestadventurer.c
 	gcc -o randomtestadventurer randomtestadventurer.c -g dominion.o rngs.o interface.o $(CFLAGS)
-	# gcc -o randomtestcard1 randomtestcard1.c -g dominion.o rngs.o interface.o $(CFLAGS)
-	# gcc -o randomtestcard2 randomtestcard2.c -g dominion.o rngs.o interface.o $(CFLAGS)
+	gcc -o randomtestcard1 randomtestcard1.c -g dominion.o rngs.o interface.o $(CFLAGS)
+	gcc -o randomtestcard2 randomtestcard2.c -g dominion.o rngs.o interface.o $(CFLAGS)
 	
 test: testunit testcard randtest
 	./testall

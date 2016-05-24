@@ -14,7 +14,6 @@
 int tests = 0;
 int pass = 0;
 int fail = 0;
-int num;
 
 //default card sets
 int k[10] = {smithy,
@@ -29,9 +28,10 @@ int k[10] = {smithy,
 			tribute};
 			
 //Generates random number from 1 to 10
-int randTen(){
+int dice(int n){
+	int num;
 	srand((unsigned)&num);
-	num = rand() % 10 + 1;
+	num = rand() % n + 1;
 	return num;
 }			
 

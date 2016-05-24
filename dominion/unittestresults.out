@@ -166,3 +166,67 @@ File 'testing.h'
 Lines executed:25.00% of 16
 Creating 'testing.h.gcov'
 
+File 'unittest1.c'
+Lines executed:100.00% of 12
+Creating 'unittest1.c.gcov'
+
+File 'testing.h'
+Lines executed:68.75% of 16
+Creating 'testing.h.gcov'
+
+File 'unittest2.c'
+Lines executed:100.00% of 10
+Creating 'unittest2.c.gcov'
+
+File 'testing.h'
+Lines executed:68.75% of 16
+Creating 'testing.h.gcov'
+
+File 'unittest3.c'
+Lines executed:100.00% of 10
+Creating 'unittest3.c.gcov'
+
+File 'testing.h'
+Lines executed:56.25% of 16
+Creating 'testing.h.gcov'
+
+File 'unittest4.c'
+Lines executed:100.00% of 6
+Creating 'unittest4.c.gcov'
+
+File 'testing.h'
+Lines executed:56.25% of 16
+Creating 'testing.h.gcov'
+
+File 'cardtest1.c'
+Lines executed:100.00% of 9
+Creating 'cardtest1.c.gcov'
+
+File 'testing.h'
+Lines executed:62.50% of 16
+Creating 'testing.h.gcov'
+
+File 'cardtest2.c'
+Lines executed:100.00% of 4
+Creating 'cardtest2.c.gcov'
+
+File 'testing.h'
+Lines executed:25.00% of 16
+Creating 'testing.h.gcov'
+
+File 'cardtest3.c'
+Lines executed:100.00% of 4
+Creating 'cardtest3.c.gcov'
+
+File 'testing.h'
+Lines executed:25.00% of 16
+Creating 'testing.h.gcov'
+
+File 'cardtest4.c'
+Lines executed:100.00% of 4
+Creating 'cardtest4.c.gcov'
+
+File 'testing.h'
+Lines executed:25.00% of 16
+Creating 'testing.h.gcov'
+
