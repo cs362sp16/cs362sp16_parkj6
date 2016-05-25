@@ -1,0 +1,42 @@
+#!/bin/bash
+# Author: 		Jong Park (parkj6)
+# Filename:		diffdominion.c
+# Description: 	
+#				- Input of 2 directory locations and random number seed
+# 				- Compiles dominion implementations in those location and runs "testdominion"
+# 				- Output states "TEST PASSED"(2 dominion are equal) or "TEST FAILED" (diff fails)
+# 				- use grep to remove debugging output
+
+echo -e "\033[0;32---Testing Codes---\033[0m"
+
+echo "Enter name of the first directory:   "
+read dir1
+echo "Enter name of the second directory:  "
+read dir2
+echo "Please enter a number for seed:      "
+read seed
+
+make clean
+mkdir $dir1
+cp ./* $dir1
+cd $dir1
+make diff
+cd -
+$dir1/testdominion $seed > diffdom.txt
+
+mkdir $dir2
+cp ./* $dir2
+cd $dir2
+make all
+cd -
+$dir2/testdominion $seed > diffdom2.txt
+
+diff -c diffdom.txt diffdomtxt2.txt > difftext
+
+if [[ -s difftext ]] ; then
+   echo -e "\033[0;31TEST FAILED\033[0m"
+else
+   echo -e "\033[0;32TEST SUCCESS\033[0m"
+fi ;
+
+

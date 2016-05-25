@@ -1,0 +1,5 @@
+Author: Jong Park
+Filename: Differential.txt
+Description: This txt document describes the differences between my dominion implementation and my classmates.
+
+Initial couple runs, most of the test were successful because the output were exactly the same. However, eventually, I ran across a random seed number that made different result for our dominion.

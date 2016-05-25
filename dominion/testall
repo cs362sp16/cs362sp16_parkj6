@@ -36,5 +36,5 @@ echo -e "\033[0;32m Testing cardtests...\033[0m"
 gcov randomtestcard1 >> randomtestcard1.out
 ./randomtestcard2
 gcov randomtestcard2 >> randomtestcard2.out
-./randomtestcard3
-gcov randomtestcard3 >> randomtestcard3.out
+./randomtestadventurer
+gcov randomtestcard3 >> randomtestadventurer.out

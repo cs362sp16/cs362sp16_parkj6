@@ -27,7 +27,7 @@ int k[10] = {smithy,
 			baron,
 			tribute};
 			
-//Generates random number from 1 to 10
+//Generates random number from input
 int dice(int n){
 	int num;
 	srand((unsigned)&num);
