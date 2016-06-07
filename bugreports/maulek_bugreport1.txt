@@ -1,0 +1,8 @@
+Test subject: Kathryn Maule (maulek)
+
+Bug1: Garden card (cards.h)
+Summary: Garden card does nothing. 
+	Should be considered as a victory card. 
+Severity: Moderate.
+	does not affect the game too much, but should be fixed before playing.
+

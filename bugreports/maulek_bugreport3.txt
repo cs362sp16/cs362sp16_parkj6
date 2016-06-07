@@ -1,0 +1,8 @@
+Test subject: Kathryn Maule (maulek)
+	
+Bug3: Feast card (cards.h)
+Summary: Infinite loop
+	Instead of discarding the feast card, it goes in a loop. 
+Severity: Severe
+	Game will not function as it should without it being fixed.
+	

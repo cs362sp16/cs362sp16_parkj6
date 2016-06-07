@@ -1,0 +1,7 @@
+Test subject: Kathryn Maule (maulek)
+
+Bug2: buyCard function (dominion.c)
+Summary:
+	if you have more than 2 buy action, it quits after the first buy.
+Severity: Severe
+	I should be able to buy more cards. 
