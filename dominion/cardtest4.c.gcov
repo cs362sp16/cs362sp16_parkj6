@@ -1,0 +1,63 @@
+        -:    0:Source:cardtest4.c
+        -:    0:Graph:cardtest4.gcno
+        -:    0:Data:cardtest4.gcda
+        -:    0:Runs:1
+        -:    0:Programs:1
+        -:    1:/*
+        -:    2://Author: 		Jong Park (parkj6)
+        -:    3://Filename:		cardtest4.c
+        -:    4://Description: 	Tests cards
+        -:    5:*/
+        -:    6:
+        -:    7:#include <stdio.h>
+        -:    8:#include "dominion.h"
+        -:    9:#include "testing.h"
+        -:   10:
+        1:   11:int main (int argc, char** argv) {
+        -:   12:  struct gameState G;
+        -:   13:
+        1:   14:  int k[10] = {adventurer, gardens, embargo, village, minion, mine, cutpurse,
+        -:   15:	       sea_hag, tribute, smithy};
+        -:   16:
+        1:   17:  printf ("Starting game.\n");
+        -:   18:
+        -:   19:  // 2 player game
+        1:   20:  srand(time(NULL));
+        1:   21:  int rando = ( rand()%10 );
+        1:   22:  int r = initializeGame(2, k, rando, &G);
+        1:   23:  if (r == 0) {
+        1:   24:	printf("PASSED\n");  
+        -:   25:  } else {
+    #####:   26:	printf("FAILED\n");
+        -:   27:  }
+        -:   28:
+        -:   29:  // TESTING -- int cardEffect(GARDENS, int choice1, int choice2, int choice3, struct gameState *state, int handPos, int *bonus)
+        -:   30:  // GARDENS -- worth 1 victory point for every 10 cards in deck
+        -:   31:
+        1:   32:  gainCard(gardens, &G, 1, 1);                       // gain copper to player1's DECK
+        1:   33:  int deckCount = fullDeckCount(1, 0, &G);           // deckCount should be 11 after gaining GARDENS (7 copper, 3 estates, 1 gardens)
+        1:   34:  int cE = cardEffect(gardens, 0, 0, 0, &G, 0);
+        1:   35:  if (cE == -1) {
+    #####:   36:	printf("PASSED\n");  
+        -:   37:  } else {
+        1:   38:	printf("FAILED\n");
+        -:   39:  }
+        -:   40:  
+        1:   41:  int getp1Score = scoreFor(1, &G);
+        1:   42:  getp1Score = getp1Score - 3;                      // we don't care about the 3 victory points from estates, only gardens
+        1:   43:  if (getp1Score != (deckCount / 10)) {
+        1:   44:	printf("FAILED\n");
+        -:   45:  } else {
+    #####:   46:	printf("PASSED\n");
+        -:   47:  }
+        -:   48:
+        -:   49:  // we know the deck count is 11, and estates are no longer counted for score
+        -:   50:  // p1Score should get 1, given we have 1 garden and 11 cards
+        1:   51:  if (getp1Score != 1) {
+        1:   52:	  printf("FAILED\n");
+        -:   53:  } else {
+    #####:   54:	printf("PASSED\n");
+        -:   55:  }
+        -:   56:
+        1:   57:  return 0;
+        -:   58:}

@@ -7,7 +7,6 @@
 	1/26/2010
 */
 
-
 #include <stdio.h>
 #include <stdlib.h>
 #include <assert.h>
@@ -18,7 +17,6 @@
 #include "dominion.h"
 #include "interface.h"
 #include "rngs.h"
-
 
 int main2(int argc, char *argv[]) {
 	//Default cards, as defined in playDom

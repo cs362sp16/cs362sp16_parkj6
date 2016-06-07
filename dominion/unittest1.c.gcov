@@ -1,0 +1,49 @@
+        -:    0:Source:unittest1.c
+        -:    0:Graph:unittest1.gcno
+        -:    0:Data:unittest1.gcda
+        -:    0:Runs:1
+        -:    0:Programs:1
+        -:    1:/*
+        -:    2://Author: 		Jong Park (parkj6)
+        -:    3://Filename:		unittest1.c
+        -:    4://Description: 	Tests initializeGame function in dominion.c file.
+        -:    5:*/
+        -:    6:
+        -:    7:#include <stdio.h>
+        -:    8:#include "dominion.h"
+        -:    9:#include "testing.h"
+        -:   10:
+        1:   11:int main(){
+        -:   12:	struct gameState g;
+        -:   13:	int test;
+        -:   14:		
+        1:   15:	int k1[10] = {smithy,
+        -:   16:				smithy, 	//extra smithy
+        -:   17:				gardens,
+        -:   18:				gardens,	//extra gardens
+        -:   19:				cutpurse,
+        -:   20:				mine,
+        -:   21:				ambassador,
+        -:   22:				outpost,
+        -:   23:				baron,
+        -:   24:				tribute};
+        -:   25:
+        -:   26:	//test 1 = no duplicate cards
+        1:   27:	test = initializeGame(2, k, 9, &g);
+        1:   28:	myassert(test==0, "2 players, no duplicate cards.\n\t(SHOULD PASS...)");
+        -:   29:	
+        -:   30:	//test 2 = duplicate cards	
+        1:   31:	test = initializeGame(2, k1, 9, &g);
+        1:   32:	myassert(test==0, "2 players, duplicate cards.\n\t(SHOUDLD NOT PASS...)");
+        -:   33:	
+        -:   34:	// test 3 = multiplayers
+        1:   35:	test = initializeGame(4, k, 9, &g);
+        1:   36:	myassert(test==0, "4 players, no duplicate cards.\n\t(SHOULD PASS...)");
+        -:   37:	
+        -:   38:	// test 4 = multiplayers
+        1:   39:	test = initializeGame(10, k, 9, &g);
+        1:   40:	myassert(test==0, "10 players, no duplicate cards.\n\t(SHOULD NOT PASS...)");
+        -:   41:
+        1:   42:	checkasserts();
+        1:   43:	return 0;
+        -:   44:}

@@ -1,0 +1,30 @@
+Author: 	Jong Park (parkj6)
+Filename: 	unittesting.txt
+About: 		This document shows what has been tested in the dominion files.
+
+unittest1: Tests initializeGame function in dominion.c file.
+	test1: tested with no duplicate cards (pass)
+	test2: tested with duplicate cares (fails)
+	test3: tested with 4 players (pass)
+	test4: tested with 10 players (fails)
+	
+unittest2: Tests the function numHandCards in dominion.c file.
+	test1: 5 cards at start (pass)
+	test2: 10 cards at start (fails)
+	test3: 1 card at start (fails)
+
+unittest3: Tests the function supplyCount in the dominion.c file.
+	test1: smithy gets 10 (pass)
+	test2: silver gets 40 (fails)
+	test3: copper gets 46 (fails)
+
+unittest4: Tests endTurn functions in the dominion.c file.
+	test1: endTurn works (pass)
+	
+cardtest1:
+
+cardtest2:
+
+cardtest3:
+
+cardtest4:

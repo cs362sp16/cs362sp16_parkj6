@@ -1,0 +1,66 @@
+        -:    0:Source:cardtest2.c
+        -:    0:Graph:cardtest2.gcno
+        -:    0:Data:cardtest2.gcda
+        -:    0:Runs:1
+        -:    0:Programs:1
+        -:    1:/*
+        -:    2://Author: 		Jong Park (parkj6)
+        -:    3://Filename:		cardtest2.c
+        -:    4://Description: 	Tests cards
+        -:    5:*/
+        -:    6:
+        -:    7:#include <stdio.h>
+        -:    8:#include "dominion.h"
+        -:    9:#include "testing.h"
+        -:   10:#include "cards.h"
+        -:   11:
+        1:   12:int main (int argc, char** argv) {
+        -:   13:  struct gameState G;
+        -:   14:
+        1:   15:  int k[10] = {adventurer, gardens, embargo, village, minion, mine, cutpurse,
+        -:   16:	       sea_hag, tribute, smithy};
+        -:   17:
+        1:   18:  printf ("Starting game.\n");
+        -:   19:
+        -:   20:  // 2 player game
+        1:   21:  srand(time(NULL));
+        1:   22:  int rando = ( rand()%10 );
+        1:   23:  int r = initializeGame(2, k, rando, &G);
+        1:   24:  if (r == 0) {
+        1:   25:	printf("PASSED\n");  
+        -:   26:  } else {
+    #####:   27:	printf("FAILED\n");
+        -:   28:  }
+        -:   29:
+        -:   30:  // TESTING -- int remodelEffect(int choice1, int choice2, int choice3, struct gameState *state, int handPos, int *bonus)
+        -:   31:  // Remodel trashes a card in current_player's hand (choice1)
+        -:   32:  // ... then, the player gains a card of value UP TO 2 more than trashed card (choice2)
+        1:   33:  int p1handCount = G.handCount[0];
+        -:   34:
+        -:   35:  
+        1:   36:  if (G.playedCardCount == 0) {
+        1:   37:	printf("PASSED\n");  
+        -:   38:  } else {
+    #####:   39:	printf("FAILED\n");
+        -:   40:  }
+        -:   41:  
+        1:   42:  int re = rem(0, &G, 0, estate, smithy);
+        -:   43:
+        1:   44:  if (G.handCount[0] == (p1handCount-1)) {
+    #####:   45:	printf("PASSED\n");  
+        -:   46:  } else {
+        1:   47:	printf("FAILED\n");
+        -:   48:  }
+        1:   49:  if (G.playedCardCount == 1) {
+    #####:   50:	printf("PASSED\n");  
+        -:   51:  } else {
+        1:   52:	printf("FAILED\n");
+        -:   53:  }
+        1:   54:  if (re == 0) {
+        1:   55:	printf("PASSED\n");  
+        -:   56:  } else {
+    #####:   57:	printf("FAILED\n");
+        -:   58:  }
+        -:   59:
+        1:   60:  return 0;
+        -:   61:}

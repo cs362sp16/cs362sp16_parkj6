@@ -1,0 +1,14 @@
+Author: Jong Park
+Filename: tarantula.txt
+Files included: tarantula.sh
+
+Process:
+1. Start with make clean and make all
+2. Testall (unitTest and cardTest)
+3. test dominion.c with gcov (dominion.c.gcov)
+4. iterate through dominon.c.gcov and count pass/fail.
+5. Calculate suspiciousness with tarantula equation.
+	0 = Green (safe)
+	0.5 = Yellow (maybe)
+	1 = Red (unsafe)
+6. Display suspiciousness of code.

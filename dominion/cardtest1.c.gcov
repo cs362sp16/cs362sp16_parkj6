@@ -1,0 +1,32 @@
+        -:    0:Source:cardtest1.c
+        -:    0:Graph:cardtest1.gcno
+        -:    0:Data:cardtest1.gcda
+        -:    0:Runs:1
+        -:    0:Programs:1
+        -:    1:/*
+        -:    2://Author: 		Jong Park (parkj6)
+        -:    3://Filename:		cardtest1.c
+        -:    4://Description: 	Tests cards
+        -:    5:*/
+        -:    6:
+        -:    7:#include <stdio.h>
+        -:    8:#include "dominion.h"
+        -:    9:#include "testing.h"
+        -:   10:
+        1:   11:int main() {
+        -:   12:	struct gameState g;
+        -:   13:	int test;
+        -:   14:	
+        -:   15:	//initialize game.
+        1:   16:	initializeGame(2, k, 9, &g);
+        -:   17:	
+        1:   18:	g.phase = 1;
+        1:   19:	g.numActions = 1;
+        1:   20:	test = playCard(4, 0, 0, 0, &g);
+        1:   21:	printf ("test = %d",test);
+        1:   22:	myassert(test==0, "card played.");
+        -:   23:	
+        1:   24:	checkasserts();
+        1:   25:	return 0;
+        -:   26:}
+        -:   27:

@@ -1,6 +1,6 @@
 CFLAGS = -Wall -coverage -lm -fprofile-arcs -ftest-coverage -std=c99 -g
 
-default: playdom player testdom test
+default: playdom player test
 
 rngs.o: rngs.h rngs.c
 	gcc -c rngs.c -g  $(CFLAGS)

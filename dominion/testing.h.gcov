@@ -1,0 +1,61 @@
+        -:    0:Source:testing.h
+        -:    0:Graph:randomtestcard2.gcno
+        -:    0:Data:randomtestcard2.gcda
+        -:    0:Runs:1
+        -:    0:Programs:1
+        -:    1:/*
+        -:    2://Author: 		Jong Park (parkj6)
+        -:    3://Filename:		testing.h
+        -:    4://Description: 	Contains the assert statement used in all the testing files.
+        -:    5:*/
+        -:    6:
+        -:    7:#include <stdio.h>
+        -:    8:#include <stdlib.h>
+        -:    9:#ifndef EVERYTHING
+        -:   10:#define EVERYTHING 42
+        -:   11:#define MIL 1000000
+        -:   12:#endif
+        -:   13:
+        -:   14:int tests = 0;
+        -:   15:int pass = 0;
+        -:   16:int fail = 0;
+        -:   17:
+        -:   18://default card sets
+        -:   19:int k[10] = {smithy,
+        -:   20:			adventurer,
+        -:   21:			gardens,
+        -:   22:			embargo,
+        -:   23:			cutpurse,
+        -:   24:			mine,
+        -:   25:			ambassador,
+        -:   26:			outpost,
+        -:   27:			baron,
+        -:   28:			tribute};
+        -:   29:			
+        -:   30://Generates random number from input
+  1000000:   31:int dice(int n){
+        -:   32:	int num;
+  1000000:   33:	srand((unsigned)&num);
+  1000000:   34:	num = rand() % n + 1;
+  1000000:   35:	return num;
+        -:   36:}			
+        -:   37:
+  1000000:   38:void myassert (int pass, char* msg) {
+  1000000:   39:	if (pass){
+    #####:   40:		printf("TEST PASSED.\nTEST CONDITION: %s\n\n",msg);
+        -:   41:	}
+        -:   42:	else{
+  1000000:   43:		printf("TEST FAILED.\nTEST CONDITION: %s\n\n",msg);
+  1000000:   44:		fail++;
+        -:   45:	}
+  1000000:   46:	tests++;
+  1000000:   47:}
+        -:   48:
+        1:   49:void checkasserts() {
+        1:   50:	if (fail==0) {
+    #####:   51:		printf("\nALL TEST PASSES!\t(%d/%d Passed)\n",tests,tests);
+        -:   52:	}
+        -:   53:	else{
+        1:   54:		printf("\nSOME TESTS FAILED.\t (%d/%d Passed)\n",tests-fail, tests);
+        -:   55:	}
+        1:   56:}
