@@ -1,4 +1,4 @@
-CFLAGS = -Wall -fpic -coverage -lm
+CFLAGS = -Wall -coverage -lm -fprofile-arcs -ftest-coverage -std=c99 -g
 
 default: playdom player
 
@@ -19,6 +19,9 @@ player: player.c interface.o
 	
 simple: playdom interface.o asimpleunittest.c 
 	gcc -o simple asimpleunittest.c -g dominion.o rngs.o interface.o $(CFLAGS)
+	
+testdom: dominion.o testdominion.c
+	gcc -o testdominion testdominion.c -g dominion.o rngs.o $(CFLAGS)
 	
 testunit: playdom interface.o testing.h unittest*.c
 	gcc -o unittest1 unittest1.c -g dominion.o rngs.o interface.o $(CFLAGS)
